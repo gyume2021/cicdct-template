@@ -1,0 +1,1 @@
+gcc -E main.c inline.h
