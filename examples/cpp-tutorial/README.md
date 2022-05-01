@@ -10,3 +10,20 @@ The second stage will showcase how to build an application with multiple source 
 
 ### Stage 3
 The third stage showcases how to link multiple build directories by building multiple libraries in different packages and then connecting it up with the main application.
+
+#### steps
+```bash
+# Build the project
+bazel build //main:hello-world
+# Test the result
+bazel-bin/main/hello-world
+
+# list the dependency
+bazel query --notool_deps --noimplicit_deps "deps(//main:hello-world)" \
+  --output graph
+
+# visulize the dependency
+sudo apt update && sudo apt install graphviz xdot
+xdot <(bazel query --notool_deps --noimplicit_deps "deps(//main:hello-world)" \
+  --output graph)
+```
