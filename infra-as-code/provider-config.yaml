@@ -1,0 +1,28 @@
+# base64 encode the GCP credentials
+# BASE64ENCODED_GCP_PROVIDER_CREDS=$(base64 crossplane-gcp-provider-key.json | tr -d "\n")
+# PROJECT_ID=my-cool-gcp-project
+# PROVIDER_SECRET_NAMESPACE=crossplane-system
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gcp-account-creds
+  namespace: ${PROVIDER_SECRET_NAMESPACE}
+type: Opaque
+data:
+  credentials: ${BASE64ENCODED_GCP_PROVIDER_CREDS}
+---
+apiVersion: gcp.crossplane.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: default
+spec:
+  # replace this with your own gcp project id
+  projectID: ${PROJECT_ID}
+  credentials:
+    source: Secret
+    secretRef:
+      namespace: ${PROVIDER_SECRET_NAMESPACE}
+      name: gcp-account-creds
+      key: creds

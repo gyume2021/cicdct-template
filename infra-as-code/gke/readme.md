@@ -1,0 +1,1 @@
+[examples](https://github.com/crossplane/provider-gcp/tree/master/examples)
