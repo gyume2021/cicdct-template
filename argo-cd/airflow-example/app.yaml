@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: airflow
+  namespace: default
+spec:
+  project: default
+  source:
+    chart: airflow-stable/airflow
+    repoURL: https://airflow-helm.github.io/charts
+    targetRevision: "8.6.0"
+    helm:
+      releaseName: airflow-cluster 
+      version: v3
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: default

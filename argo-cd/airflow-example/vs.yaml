@@ -1,0 +1,33 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  namespace: istio-system
+  name: airflow-web
+spec:
+  hosts:
+    - "airflow-web.loadtest.e2eelab.org"
+  gateways:
+    - public-gateway
+  http:
+  - route:
+    - destination:
+        host: airflow-cluster-web.argocd-production.svc.cluster.local
+        port:
+          number: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  namespace: istio-system
+  name: airflow-dashboard
+spec:
+  hosts:
+    - "airflow-dashboard.loadtest.e2eelab.org"
+  gateways:
+    - public-gateway
+  http:
+  - route:
+    - destination:
+        host: airflow-cluster-flower.argocd-production.svc.cluster.local
+        port:
+          number: 5555
