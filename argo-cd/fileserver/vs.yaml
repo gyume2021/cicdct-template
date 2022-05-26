@@ -2,6 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: fileserver
+  namespace: istio-system
 spec:
   hosts:
     - "fileserver.loadtest.e2eelab.org"
