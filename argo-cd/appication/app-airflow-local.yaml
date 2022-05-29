@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: airflow-cluster
+  name: airflow
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -14,8 +14,12 @@ spec:
     path: argo-cd/airflow-helm
     repoURL: https://github.com/gyume2021/cicdct-template.git
     helm: 
-      valueFiles: 
-      - my-values.yaml
+      values: |
+        flower:
+          service:
+            externalPort: 6666
+      # valueFiles: 
+      # - my-values.yaml
   syncPolicy:
     syncOptions:
     - PruneLast=true
