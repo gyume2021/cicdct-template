@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: airflow-cluster
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: airflow
