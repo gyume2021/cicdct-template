@@ -24,3 +24,4 @@ helm upgrade --cleanup-on-fail \
 
 ## reference
 - [airflow helm chart](https://github.com/airflow-helm/charts/tree/main/charts/airflow/examples/google-gke)
+- [helm subchart](https://github.com/argoproj/argo-cd/issues/2789)

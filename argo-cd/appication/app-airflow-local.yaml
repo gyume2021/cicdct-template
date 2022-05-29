@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: airflow
+  name: airflow-local
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: airflow
+    namespace: airflow-local
     server: https://kubernetes.default.svc
   project: default
   source:
@@ -15,9 +15,7 @@ spec:
     repoURL: https://github.com/gyume2021/cicdct-template.git
     helm: 
       values: |
-        flower:
-          service:
-            externalPort: 6666
+        flower.service.externalPort: 6666
       # valueFiles: 
       # - my-values.yaml
   syncPolicy:
