@@ -1,6 +1,8 @@
 # Airflow
 
 ```bash
+helm repo add airflow-stable https://airflow-helm.github.io/charts
+
 argocd app set helm-guestbook --values values-production.yaml
 
 ## create the namespace
@@ -21,4 +23,4 @@ helm upgrade --cleanup-on-fail \
 ```
 
 ## reference
-- [airflow helm chart](https://github.com/airflow-helm/charts/tree/main/charts/airflow)
+- [airflow helm chart](https://github.com/airflow-helm/charts/tree/main/charts/airflow/examples/google-gke)

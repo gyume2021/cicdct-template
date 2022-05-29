@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: airflow-cluster
+  namespace: argocd
+spec:
+  destination:
+    namespace: airflow
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: argo-cd/airflow-helm
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    helm: 
+      valueFiles: ['my-values.yaml']
+  syncPolicy:
+    syncOptions:
+    - PruneLast=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    automated:
+      prune: true
+      selfHeal: true
