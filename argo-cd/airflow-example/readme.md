@@ -1,6 +1,6 @@
-# airflow
+# Airflow
 
-## 
+```bash
 argocd app set helm-guestbook --values values-production.yaml
 
 ## create the namespace
@@ -18,5 +18,7 @@ helm upgrade --cleanup-on-fail \
   --dry-run \
   --debug \
   --values ./custom-values.yaml
+```
 
+## reference
 - [airflow helm chart](https://github.com/airflow-helm/charts/tree/main/charts/airflow)

@@ -5,14 +5,6 @@ $ kubectl create ns fileserver
 kubectl label ns debug istio-injection=enabled
 $ kubectl apply -f k8s
 
-zone name: e2eelab-org	
-dns name:  e2eelab.org.
-
-gcloud dns --project=helical-realm-307202 record-sets transaction start --zone="e2eelab-org"
-gcloud dns --project=helical-realm-307202 record-sets transaction add 34.80.170.9 --name="debug.e2eelab.org." --ttl="300" --type="A" --zone="e2eelab-org"
-gcloud dns --project=helical-realm-307202 record-sets transaction remove 34.80.170.9 --name="debug.e2eelab.org." --ttl="300" --type="A" --zone="e2eelab-org"
-gcloud dns --project=helical-realm-307202 record-sets transaction execute --zone="e2eelab-org"
-
 # enter the server
 $ kubectl exec -it $(kubectl get pod -n fileserver -o name) -n fileserver -- sh
 ```

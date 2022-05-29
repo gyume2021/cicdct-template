@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fileserver
+  namespace: argocd
+spec:
+  destination:
+    namespace: fileserver
+    server: https://kubernetes.default.svc
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+  source:
+    path: argo-cd/fileserver
+    repoURL: https://github.com/gyume2021/cicdct-template
+    targetRevision: main

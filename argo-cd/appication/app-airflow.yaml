@@ -1,0 +1,306 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2022-05-26T05:31:53Z"
+  generation: 1111
+  name: myairflow
+  namespace: argocd
+  resourceVersion: "192996192"
+  uid: ce273b0c-b6f8-411c-8b81-ccc2681b17a1
+spec:
+  destination:
+    namespace: af
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: airflow
+    repoURL: https://airflow-helm.github.io/charts
+    targetRevision: 8.6.0
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2022-05-26T05:32:11Z"
+    deployedAt: "2022-05-26T05:32:14Z"
+    id: 0
+    revision: 8.6.0
+    source:
+      chart: airflow
+      repoURL: https://airflow-helm.github.io/charts
+      targetRevision: 8.6.0
+  - deployStartedAt: "2022-05-28T04:31:28Z"
+    deployedAt: "2022-05-28T04:31:29Z"
+    id: 1
+    revision: 8.6.0
+    source:
+      chart: airflow
+      repoURL: https://airflow-helm.github.io/charts
+      targetRevision: 8.6.0
+  - deployStartedAt: "2022-05-28T11:06:47Z"
+    deployedAt: "2022-05-28T11:06:51Z"
+    id: 2
+    revision: 8.6.0
+    source:
+      chart: airflow
+      repoURL: https://airflow-helm.github.io/charts
+      targetRevision: 8.6.0
+  operationState:
+    finishedAt: "2022-05-28T11:06:52Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        prune: true
+        revision: 8.6.0
+        syncOptions:
+        - PruneLast=true
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2022-05-28T11:06:47Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Secret
+        message: secret/myairflow-pgbouncer-certs configured
+        name: myairflow-pgbouncer-certs
+        namespace: af
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 8.6.0
+      source:
+        chart: airflow
+        repoURL: https://airflow-helm.github.io/charts
+        targetRevision: 8.6.0
+  reconciledAt: "2022-05-28T11:18:26Z"
+  resources:
+  - kind: ConfigMap
+    name: myairflow-redis
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: ConfigMap
+    name: myairflow-redis-health
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: myairflow-config-envs
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: myairflow-db-migrations
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: myairflow-pgbouncer
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: myairflow-pgbouncer-certs
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: myairflow-postgresql
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: myairflow-redis
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: myairflow-sync-users
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: myairflow-webserver-config
+    namespace: af
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myairflow-flower
+    namespace: af
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myairflow-pgbouncer
+    namespace: af
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myairflow-postgresql
+    namespace: af
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myairflow-postgresql-headless
+    namespace: af
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myairflow-redis-headless
+    namespace: af
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myairflow-redis-master
+    namespace: af
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myairflow-web
+    namespace: af
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myairflow-worker
+    namespace: af
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: myairflow
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myairflow-db-migrations
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myairflow-flower
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myairflow-pgbouncer
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myairflow-scheduler
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myairflow-sync-users
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myairflow-triggerer
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myairflow-web
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: statefulset rolling update complete 1 pods at revision myairflow-postgresql-7d46fc788d...
+      status: Healthy
+    kind: StatefulSet
+    name: myairflow-postgresql
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: statefulset rolling update complete 1 pods at revision myairflow-redis-master-5d97fd7586...
+      status: Healthy
+    kind: StatefulSet
+    name: myairflow-redis-master
+    namespace: af
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: statefulset rolling update complete 1 pods at revision myairflow-worker-9745bbbb8...
+      status: Healthy
+    kind: StatefulSet
+    name: myairflow-worker
+    namespace: af
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: myairflow
+    namespace: af
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: myairflow
+    namespace: af
+    status: Synced
+    version: v1
+  sourceType: Helm
+  summary:
+    images:
+    - apache/airflow:2.2.5-python3.8
+    - docker.io/bitnami/postgresql:11.7.0-debian-10-r9
+    - docker.io/bitnami/redis:5.0.7-debian-10-r32
+    - ghcr.io/airflow-helm/pgbouncer:1.17.0-patch.0
+  sync:
+    comparedTo:
+      destination:
+        namespace: af
+        server: https://kubernetes.default.svc
+      source:
+        chart: airflow
+        repoURL: https://airflow-helm.github.io/charts
+        targetRevision: 8.6.0
+    revision: 8.6.0
+    status: Synced
