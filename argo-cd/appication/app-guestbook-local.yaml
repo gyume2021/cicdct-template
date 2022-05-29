@@ -13,4 +13,4 @@ spec:
     repoURL: https://github.com/gyume2021/cicdct-template.git
     helm:
       valueFiles: 
-      - my-values.yaml
+      - myvalues.yaml
