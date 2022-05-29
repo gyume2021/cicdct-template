@@ -1,14 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myairflow
+  name: airflow-cluster
   namespace: argocd
 spec:
   destination:
-    namespace: af
+    namespace: airflow
     server: https://kubernetes.default.svc
   project: default
   source:
     chart: airflow
     repoURL: https://airflow-helm.github.io/charts
     targetRevision: 8.6.0
+  syncPolicy:
+    syncOptions:
+    - PruneLast=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    automated:
+      prune: true
+      selfHeal: true
