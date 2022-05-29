@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argo-cd/guestbook
+    path: argo-cd/helm-guestbook
     repoURL: https://github.com/gyume2021/cicdct-template.git
     helm:
       valueFiles: 
