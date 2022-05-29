@@ -1,8 +1,6 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
   namespace: istio-system
   name: airflow-web
 spec:
@@ -20,8 +18,6 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
   namespace: istio-system
   name: airflow-dashboard
 spec:
