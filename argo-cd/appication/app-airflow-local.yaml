@@ -10,9 +10,10 @@ spec:
   project: default
   source:
     path: argo-cd/airflow-helm
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    repoURL: https://github.com/gyume2021/cicdct-template.git
     helm: 
-      valueFiles: ['my-values.yaml']
+      valueFiles: 
+      - my-values.yaml
   syncPolicy:
     syncOptions:
     - PruneLast=true
