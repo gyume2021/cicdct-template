@@ -8,7 +8,7 @@ spec:
     location: asia-east1-a
     autoscaling:
       autoprovisioningNodePoolDefaults:
-        serviceAccount: <service-account>@<project-id>.iam.gserviceaccount.com
+        serviceAccount: helicom-admin@helical-realm-307202.iam.gserviceaccount.com
     networkConfig:
       enableIntraNodeVisibility: true
     loggingService: logging.googleapis.com/kubernetes

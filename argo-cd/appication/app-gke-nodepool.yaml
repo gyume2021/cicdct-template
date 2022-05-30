@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gke
+  name: gke-nodepool
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argo-cd/gke
+    path: argo-cd/gke-nodepool
     repoURL: https://github.com/gyume2021/cicdct-template
     targetRevision: main
   syncPolicy:
