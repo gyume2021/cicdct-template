@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gke
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: iac
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: argo-cd/gke
+    repoURL: https://github.com/gyume2021/cicdct-template
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+    - PruneLast=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    - PrunePropagationPolicy=foreground
+    automated:
+      prune: true
+      selfHeal: true
