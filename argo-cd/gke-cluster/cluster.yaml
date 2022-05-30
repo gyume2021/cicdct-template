@@ -1,14 +1,14 @@
 apiVersion: container.gcp.crossplane.io/v1beta2
 kind: Cluster
 metadata:
-  name: example-cluster
+  name: example-argo-cluster
 spec:
   forProvider:
     initialClusterVersion: "latest"
     location: asia-east1-a
     autoscaling:
       autoprovisioningNodePoolDefaults:
-        serviceAccount: helicom-admin@helical-realm-307202.iam.gserviceaccount.com
+        serviceAccount: helicom-admin # name of the service account
     networkConfig:
       enableIntraNodeVisibility: true
     loggingService: logging.googleapis.com/kubernetes
