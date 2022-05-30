@@ -18,5 +18,5 @@ spec:
         enabled: true
     network: "default"
   writeConnectionSecretToRef:
-    namespace: gke # default
+    namespace: default
     name: gke-conn
