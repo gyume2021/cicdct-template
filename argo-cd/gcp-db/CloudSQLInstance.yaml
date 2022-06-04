@@ -2,9 +2,8 @@ apiVersion: database.gcp.crossplane.io/v1beta1
 kind: CloudSQLInstance
 metadata:
   name: devops-toolkit-db
-  namespace: production
 spec:
   forProvider:
-    region: us-east1
+    region: asia-east1
     settings:
       tier: db-n1-standard-1
