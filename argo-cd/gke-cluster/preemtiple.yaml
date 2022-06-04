@@ -1,7 +1,7 @@
 apiVersion: container.gcp.crossplane.io/v1beta1
 kind: NodePool
 metadata:
-  name: crossplane-np
+  name: crossplane-preemptible-np
 spec:
   forProvider:
     autoscaling:
