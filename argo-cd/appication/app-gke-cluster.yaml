@@ -6,20 +6,20 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:
-    namespace: iac
-    server: https://kubernetes.default.svc
   project: default
   source:
     path: argo-cd/gke-cluster
     repoURL: https://github.com/gyume2021/cicdct-template
     targetRevision: main
+  destination:
+    namespace: iac
+    server: https://kubernetes.default.svc
   syncPolicy:
-    syncOptions:
-    - PruneLast=true
-    - CreateNamespace=true
-    - ApplyOutOfSyncOnly=true
-    - PrunePropagationPolicy=foreground
+    # syncOptions:
+    # - PruneLast=true
+    # - CreateNamespace=true
+    # - ApplyOutOfSyncOnly=true
+    # - PrunePropagationPolicy=foreground
     automated:
-      prune: true
       selfHeal: true
+      prune: true
