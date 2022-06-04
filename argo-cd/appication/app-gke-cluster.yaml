@@ -15,11 +15,11 @@ spec:
     namespace: iac
     server: https://kubernetes.default.svc
   syncPolicy:
-    # syncOptions:
-    # - PruneLast=true
-    # - CreateNamespace=true
-    # - ApplyOutOfSyncOnly=true
-    # - PrunePropagationPolicy=foreground
+    syncOptions:
+    - PruneLast=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    - PrunePropagationPolicy=foreground
     automated:
       selfHeal: true
       prune: true
