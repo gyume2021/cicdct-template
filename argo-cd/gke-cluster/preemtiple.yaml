@@ -10,7 +10,7 @@ spec:
       maxNodeCount: 5
       minNodeCount: 3  
     clusterRef:
-      name: example-cluster
+      name: example-argo-cluster
     config:  
       serviceAccount: helicom-admin@helical-realm-307202.iam.gserviceaccount.com
       machineType: n1-standard-1
@@ -31,3 +31,4 @@ spec:
     initialNodeCount: 3
     locations:
       - "asia-east1-a"
+    preemptible: true
