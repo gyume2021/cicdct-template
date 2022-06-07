@@ -37,8 +37,6 @@ spec:
     config:  
       serviceAccount: default
       machineType: e2-standard-8
-      sandboxConfig:
-        type: gvisor
       diskSizeGb: 120
       diskType: pd-ssd
       imageType: cos_containerd
@@ -71,8 +69,6 @@ spec:
     config:  
       serviceAccount: default
       machineType: e2-standard-8
-      sandboxConfig:
-        type: gvisor
       diskSizeGb: 120
       diskType: pd-ssd
       imageType: cos_containerd
