@@ -15,4 +15,4 @@ helm upgrade --cleanup-on-fail \
 --timeout=15m \
 --values jenkins-helm-values.yaml \
 --dry-run \
---debug  > aaa.yaml
+--debug

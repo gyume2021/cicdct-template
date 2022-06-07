@@ -8,7 +8,7 @@ spec:
     location: asia-east1-a
     autoscaling:
       autoprovisioningNodePoolDefaults:
-        serviceAccount: helicom-admin # name of the service account
+        serviceAccount: default # name of the service account
     networkConfig:
       enableIntraNodeVisibility: true
     loggingService: logging.googleapis.com/kubernetes
@@ -35,15 +35,15 @@ spec:
     clusterRef:
       name: example-argo-cluster
     config:  
-      serviceAccount: helicom-admin@helical-realm-307202.iam.gserviceaccount.com
-      machineType: n1-standard-1
+      serviceAccount: default
+      machineType: e2-standard-8
       sandboxConfig:
         type: gvisor
       diskSizeGb: 120
       diskType: pd-ssd
       imageType: cos_containerd
-      labels:
-        test-label: crossplane-created
+      # labels:
+      #   test-label: crossplane-created
       oauthScopes:
       - "https://www.googleapis.com/auth/devstorage.read_only"
       - "https://www.googleapis.com/auth/logging.write"
@@ -69,15 +69,15 @@ spec:
     clusterRef:
       name: example-argo-cluster
     config:  
-      serviceAccount: helicom-admin@helical-realm-307202.iam.gserviceaccount.com
-      machineType: n1-standard-1
+      serviceAccount: default
+      machineType: e2-standard-8
       sandboxConfig:
         type: gvisor
       diskSizeGb: 120
       diskType: pd-ssd
       imageType: cos_containerd
-      labels:
-        test-label: crossplane-created
+      # labels:
+      #   test-label: crossplane-created
       oauthScopes:
       - "https://www.googleapis.com/auth/devstorage.read_only"
       - "https://www.googleapis.com/auth/logging.write"
@@ -86,6 +86,10 @@ spec:
       - "https://www.googleapis.com/auth/service.management.readonly"
       - "https://www.googleapis.com/auth/trace.append"     
       preemptible: true 
+      taints: 
+      - effect: NO_SCHEDULE
+        key: cloud.google.com/gke-preemptible
+        value: 'true'
     initialNodeCount: 3
     locations:
       - "asia-east1-a"
