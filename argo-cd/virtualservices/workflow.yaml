@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: workflow
+  namespace: istio-system
+spec:
+  hosts:
+    - "workflow.loadtest.e2eelab.org"
+  gateways:
+    - public-gateway
+  http:
+  - route:
+    - destination:
+        host: argo-server.argo.svc.cluster.local
+        port:
+          number: 2746

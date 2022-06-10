@@ -2,7 +2,6 @@ kubectl apply -f jenkins-pvc.yaml
 
 kubectl apply -f jenkins-sa.yaml
 
-
 https://www.jenkins.io/doc/book/installing/kubernetes/#configure-helm
 
 https://artifacthub.io/packages/helm/jenkinsci/jenkins

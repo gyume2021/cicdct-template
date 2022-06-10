@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: analytics
+  namespace: argocd
+spec:
+  destination:
+    namespace: analytics
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: argo-cd/spark
+    repoURL: https://github.com/gyume2021/cicdct-template.git
+    helm:
+      valueFiles: 
+      - myvalues.yaml
