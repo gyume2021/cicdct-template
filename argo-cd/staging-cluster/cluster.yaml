@@ -33,7 +33,7 @@ spec:
       maxNodeCount: 5
       minNodeCount: 3  
     clusterRef:
-      name: example-argo-cluster
+      name: staging-cluster
     config:  
       serviceAccount: default
       machineType: e2-standard-8
@@ -65,7 +65,7 @@ spec:
       maxNodeCount: 5
       minNodeCount: 3  
     clusterRef:
-      name: example-argo-cluster
+      name: staging-cluster
     config:  
       serviceAccount: default
       machineType: e2-standard-8
